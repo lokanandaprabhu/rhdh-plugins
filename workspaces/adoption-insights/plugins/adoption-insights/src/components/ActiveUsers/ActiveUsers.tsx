@@ -35,6 +35,7 @@ import {
   getAverage,
   getXAxisformat,
   getXAxisTickValues,
+  getGroupingLabel,
 } from '../../utils/utils';
 import { useActiveUsers } from '../../hooks/useActiveUsers';
 import { Typography } from '@material-ui/core';
@@ -89,7 +90,7 @@ const ActiveUsers = () => {
             <b>
               {`${Math.round(getAverage(data, 'total_users')).toLocaleString(
                 'en-Us',
-              )} per ${grouping === 'hourly' ? 'hour' : 'day'}`}
+              )} per ${getGroupingLabel(grouping)}`}
             </b>{' '}
             for this period.
           </Typography>

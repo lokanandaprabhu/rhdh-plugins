@@ -35,6 +35,7 @@ import {
   getTotal,
   getXAxisformat,
   getXAxisTickValues,
+  getGroupingLabel,
 } from '../../utils/utils';
 import CustomCursor from '../Common/CustomCursor';
 import EmptyChartState from '../Common/EmptyChartState';
@@ -90,7 +91,7 @@ const Searches = () => {
             <b>
               {`${Math.round(getAverage(data, 'count')).toLocaleString(
                 'en-US',
-              )} per ${grouping === 'hourly' ? 'hour' : 'day'}`}
+              )} per ${getGroupingLabel(grouping)}`}
             </b>{' '}
             for this period.
           </Typography>
