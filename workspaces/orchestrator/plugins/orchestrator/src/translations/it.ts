@@ -62,6 +62,21 @@ const orchestratorTranslationIt = createTranslationMessages({
     'table.filters.startedOptions.thisMonth': 'Questo mese',
     'workflow.details': 'Dettagli',
     'workflow.definition': 'Definizione flusso di lavoro',
+    'workflow.visualization': 'Visualizzazione del flusso di lavoro',
+    'workflow.visualizationReactFlow':
+      'Visualizzazione del flusso di lavoro (React Flow)',
+    'workflow.visualizationEmpty':
+      'Nessuna definizione del flusso di lavoro disponibile.',
+    'workflow.visualizationInvalid':
+      'Impossibile analizzare la definizione del flusso di lavoro.',
+    'workflow.visualizationNoStates':
+      'Nessuno stato trovato nella definizione del flusso di lavoro.',
+    'workflow.inputSchemaVisualization':
+      'Visualizzazione dello schema di input',
+    'workflow.inputSchemaVisualizationEmpty':
+      'Nessuno schema di input disponibile.',
+    'workflow.inputSchemaVisualizationNoFields':
+      'Nessun campo trovato nello schema di input.',
     'workflow.progress': 'Avanzamento flusso di lavoro',
     'workflow.status.available': 'Disponibile',
     'workflow.status.unavailable': 'Non disponibile',

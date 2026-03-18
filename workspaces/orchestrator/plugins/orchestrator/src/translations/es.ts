@@ -50,6 +50,8 @@ const orchestratorTranslationEs = createTranslationMessages({
     'table.filters.startedOptions.thisMonth': 'Este mes',
     'workflow.details': 'Detalles',
     'workflow.definition': 'Definición de flujo de trabajo',
+    'workflow.visualizationReactFlow':
+      'Visualización del flujo de trabajo (React Flow)',
     'workflow.progress': 'Progreso del flujo de trabajo',
     'workflow.status.available': 'Disponible',
     'workflow.status.unavailable': 'No disponible',

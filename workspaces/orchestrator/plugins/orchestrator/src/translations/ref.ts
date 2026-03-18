@@ -73,6 +73,14 @@ export const orchestratorMessages = {
   workflow: {
     details: 'Details',
     definition: 'Workflow definition',
+    visualization: 'Workflow visualization',
+    visualizationReactFlow: 'Workflow visualization (React Flow)',
+    visualizationEmpty: 'No workflow definition available.',
+    visualizationInvalid: 'Unable to parse the workflow definition.',
+    visualizationNoStates: 'No states found in the workflow definition.',
+    inputSchemaVisualization: 'Input schema visualization',
+    inputSchemaVisualizationEmpty: 'No input schema available.',
+    inputSchemaVisualizationNoFields: 'No fields found in the input schema.',
     progress: 'Workflow progress',
     status: {
       available: 'Available',

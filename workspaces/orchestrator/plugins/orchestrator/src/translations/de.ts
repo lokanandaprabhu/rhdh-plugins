@@ -50,6 +50,17 @@ const orchestratorTranslationDe = createTranslationMessages({
     'table.filters.startedOptions.thisMonth': 'Dieser Monat',
     'workflow.details': 'Details',
     'workflow.definition': 'Workflow-Definition',
+    'workflow.visualization': 'Workflow-Visualisierung',
+    'workflow.visualizationReactFlow': 'Workflow-Visualisierung (React Flow)',
+    'workflow.visualizationEmpty': 'Keine Workflow-Definition verfügbar.',
+    'workflow.visualizationInvalid':
+      'Workflow-Definition konnte nicht geparst werden.',
+    'workflow.visualizationNoStates':
+      'Keine Zustände in der Workflow-Definition gefunden.',
+    'workflow.inputSchemaVisualization': 'Eingabeschema-Visualisierung',
+    'workflow.inputSchemaVisualizationEmpty': 'Kein Eingabeschema verfügbar.',
+    'workflow.inputSchemaVisualizationNoFields':
+      'Keine Felder im Eingabeschema gefunden.',
     'workflow.progress': 'Workflow-Fortschritt',
     'workflow.status.available': 'Verfügbar',
     'workflow.status.unavailable': 'Nicht verfügbar',

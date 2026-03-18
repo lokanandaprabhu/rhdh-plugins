@@ -61,6 +61,7 @@ const orchestratorTranslationJa = createTranslationMessages({
     'table.filters.startedOptions.thisMonth': '今月',
     'workflow.details': '詳細',
     'workflow.definition': 'ワークフロー定義',
+    'workflow.visualizationReactFlow': 'ワークフローの可視化 (React Flow)',
     'workflow.progress': 'ワークフロー進捗',
     'workflow.status.available': '利用可能',
     'workflow.status.unavailable': '利用不可',

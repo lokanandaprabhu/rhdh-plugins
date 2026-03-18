@@ -20,6 +20,7 @@ import { InfoCard, ResponseErrorPanel } from '@backstage/core-components';
 import { useApi, useRouteRefParams } from '@backstage/core-plugin-api';
 import { usePermission } from '@backstage/plugin-permission-react';
 
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 import {
@@ -32,6 +33,8 @@ import { useTranslation } from '../../hooks/useTranslation';
 import { entityWorkflowRouteRef, workflowRouteRef } from '../../routes';
 import ServerlessWorkflowEditor from './ServerlessWorkflowEditor';
 import WorkflowDefinitionDetailsCard from './WorkflowDetailsCard';
+import { WorkflowVisualizationCard } from './WorkflowVisualizationCard';
+import { WorkflowVisualizationReactFlowCard } from './WorkflowVisualizationReactFlowCard';
 
 interface Props {
   loadingWorkflowOverview: boolean;
@@ -61,6 +64,8 @@ export const WorkflowDetailsTabContent = ({
     entityRef = `${kind}:${namespace}/${name}`;
   }
 
+  const canViewSource = adminView.allowed && !entityRef;
+
   return (
     <Grid container item direction="column" xs={12} spacing={2} wrap="nowrap">
       {errorWorkflowOverview && (
@@ -74,7 +79,29 @@ export const WorkflowDetailsTabContent = ({
           loading={loadingWorkflowOverview}
         />
       </Grid>
-      {workflowOverviewDTO && adminView.allowed && value && !entityRef && (
+      {workflowOverviewDTO && canViewSource && (
+        <Grid item>
+          <Box sx={{ width: '80%', mx: 'auto' }}>
+            <WorkflowVisualizationCard
+              workflowSource={value?.data}
+              loadingWorkflowSource={loading}
+              errorWorkflowSource={error}
+            />
+          </Box>
+        </Grid>
+      )}
+      {workflowOverviewDTO && canViewSource && (
+        <Grid item>
+          <Box sx={{ width: '80%', mx: 'auto' }}>
+            <WorkflowVisualizationReactFlowCard
+              workflowSource={value?.data}
+              loadingWorkflowSource={loading}
+              errorWorkflowSource={error}
+            />
+          </Box>
+        </Grid>
+      )}
+      {workflowOverviewDTO && canViewSource && value && (
         <Grid item>
           <InfoCard title={t('workflow.definition')}>
             <ServerlessWorkflowEditor

@@ -18,6 +18,7 @@ It is built on top of [SonataFlow](https://sonataflow.org/), providing a Backsta
 - [Development Guidelines](./docs/Contributors.md)
 - [API Reference](#api-reference)
 - [Workflows tab for Catalog Entities](./docs/workflows-tab.md)
+- [Workflow Visualization Comparison](./docs/workflow-visualization-comparison.md)
 
 ## Architecture Overview
 

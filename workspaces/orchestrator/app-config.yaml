@@ -41,7 +41,7 @@ backend:
   # The production database configuration is stored in app-config.production.yaml
   database:
     client: better-sqlite3
-    connection: ':memory:'
+    connection: ":memory:"
   cache:
     store: memory
   # useful for debugging APIs via curl in dev env without requiring a auth:
@@ -58,29 +58,29 @@ integrations: {}
 proxy:
   reviveConsumedRequestBodies: true
   endpoints:
-    '/quay/api':
-      target: 'https://quay.io'
+    "/quay/api":
+      target: "https://quay.io"
       headers:
-        X-Requested-With: 'XMLHttpRequest'
+        X-Requested-With: "XMLHttpRequest"
         # Uncomment the following line to access a private Quay Repository using a token
         # Authorization: 'Bearer <YOUR TOKEN>'
       changeOrigin: true
       # Change to "false" in case of using self hosted quay instance with a self-signed certificate
       secure: true
-    '/mytesthttpserver':
-      target: 'http://localhost:12345'
-      allowedMethods: ['GET', 'POST']
-      allowedHeaders: ['test-header']
+    "/mytesthttpserver":
+      target: "http://localhost:12345"
+      allowedMethods: ["GET", "POST"]
+      allowedHeaders: ["test-header"]
 
 quay:
-  uiUrl: 'https://quay.io'
+  uiUrl: "https://quay.io"
 
 techdocs:
-  builder: 'local' # Alternatives - 'external'
+  builder: "local" # Alternatives - 'external'
   generator:
-    runIn: 'docker' # Alternatives - 'local'
+    runIn: "docker" # Alternatives - 'local'
   publisher:
-    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
+    type: "local" # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
@@ -164,6 +164,7 @@ orchestrator:
   # workflowLogProvider:
   #   loki:
   #     baseUrl: http://localhost:3100
+  #     token: ${ORCHESTRATOR_LOKI_TOKEN}
   # Uncomment if using a custom log stream selector
   # logStreamSelectors:
   #   - label: 'selector'
