@@ -111,6 +111,7 @@ export type SchemaChunksResponse = {
  */
 export type OrchestratorFormSchemaUpdater = (
   chunks: SchemaChunksResponse,
+  scopeId?: string,
 ) => void;
 
 /**

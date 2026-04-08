@@ -44,7 +44,7 @@ export type OrchestratorFormContextProps = {
 export type OrchestratorFormDecorator = (FormComponent: React.ComponentType<FormDecoratorProps>) => React.ComponentType<OrchestratorFormContextProps>;
 
 // @public
-export type OrchestratorFormSchemaUpdater = (chunks: SchemaChunksResponse) => void;
+export type OrchestratorFormSchemaUpdater = (chunks: SchemaChunksResponse, scopeId?: string) => void;
 
 // @public
 export type SchemaChunksResponse = {
