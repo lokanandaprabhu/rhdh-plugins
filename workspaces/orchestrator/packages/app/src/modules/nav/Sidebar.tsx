@@ -26,22 +26,23 @@ import { NavContentBlueprint } from '@backstage/plugin-app-react';
 import { SidebarLogo } from './SidebarLogo';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export const SidebarContent = NavContentBlueprint.make({
-  params: {
-    component: ({ items }) =>
-      compatWrapper(
-        <Sidebar>
-          <SidebarLogo />
-          <SidebarDivider />
-          <SidebarGroup label="Menu" icon={<MenuIcon />}>
-            <SidebarScrollWrapper>
-              {items.map((item, index) => (
-                <SidebarItem {...item} key={index} />
-              ))}
-            </SidebarScrollWrapper>
-          </SidebarGroup>
-          <SidebarSpace />
-        </Sidebar>,
-      ),
-  },
-});
+export const SidebarContent: ReturnType<typeof NavContentBlueprint.make> =
+  NavContentBlueprint.make({
+    params: {
+      component: ({ items }) =>
+        compatWrapper(
+          <Sidebar>
+            <SidebarLogo />
+            <SidebarDivider />
+            <SidebarGroup label="Menu" icon={<MenuIcon />}>
+              <SidebarScrollWrapper>
+                {items.map((item, index) => (
+                  <SidebarItem {...item} key={index} />
+                ))}
+              </SidebarScrollWrapper>
+            </SidebarGroup>
+            <SidebarSpace />
+          </Sidebar>,
+        ),
+    },
+  });

@@ -112,27 +112,30 @@ const orchestratorTranslation = TranslationBlueprint.make({
  * The Orchestrator plugin for the new frontend system.
  * @alpha
  */
-export default createFrontendPlugin({
-  pluginId: 'orchestrator',
-  extensions: [
-    orchestratorPage,
-    orchestratorNavItem,
-    orchestratorApi,
-    orchestratorEntityContent,
-  ],
-  routes: {
-    root: orchestratorRootRouteRef,
-    workflow: workflowRouteRef,
-    workflowRuns: workflowRunsRouteRef,
-    workflowInstance: workflowInstanceRouteRef,
-    executeWorkflow: executeWorkflowRouteRef,
-    entityWorkflow: entityWorkflowRouteRef,
-    entityInstance: entityInstanceRouteRef,
-  },
-  info: {
-    packageJson: () => import('../package.json'),
-  },
-});
+const orchestratorFrontendPlugin: ReturnType<typeof createFrontendPlugin> =
+  createFrontendPlugin({
+    pluginId: 'orchestrator',
+    extensions: [
+      orchestratorPage,
+      orchestratorNavItem,
+      orchestratorApi,
+      orchestratorEntityContent,
+    ],
+    routes: {
+      root: orchestratorRootRouteRef,
+      workflow: workflowRouteRef,
+      workflowRuns: workflowRunsRouteRef,
+      workflowInstance: workflowInstanceRouteRef,
+      executeWorkflow: executeWorkflowRouteRef,
+      entityWorkflow: entityWorkflowRouteRef,
+      entityInstance: entityInstanceRouteRef,
+    },
+    info: {
+      packageJson: () => import('../package.json'),
+    },
+  });
+
+export default orchestratorFrontendPlugin;
 
 /**
  * A frontend module that registers Orchestrator translations.

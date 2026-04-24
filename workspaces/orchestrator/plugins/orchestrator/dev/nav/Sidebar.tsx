@@ -30,23 +30,24 @@ import { NavContentBlueprint } from '@backstage/plugin-app-react';
 
 import { SidebarLogo } from './SidebarLogo';
 
-export const SidebarContent = NavContentBlueprint.make({
-  params: {
-    component: ({ items }) =>
-      compatWrapper(
-        <Sidebar>
-          <SidebarLogo />
-          <SidebarGroup label="Menu">
-            <SidebarScrollWrapper>
-              {items.map((item, index) => (
-                <SidebarItem {...item} key={index} />
-              ))}
-            </SidebarScrollWrapper>
-          </SidebarGroup>
-          <SidebarSpace />
-          <SidebarLanguageSwitcher />
-          <SidebarSignOutButton />
-        </Sidebar>,
-      ),
-  },
-});
+export const SidebarContent: ReturnType<typeof NavContentBlueprint.make> =
+  NavContentBlueprint.make({
+    params: {
+      component: ({ items }) =>
+        compatWrapper(
+          <Sidebar>
+            <SidebarLogo />
+            <SidebarGroup label="Menu">
+              <SidebarScrollWrapper>
+                {items.map((item, index) => (
+                  <SidebarItem {...item} key={index} />
+                ))}
+              </SidebarScrollWrapper>
+            </SidebarGroup>
+            <SidebarSpace />
+            <SidebarLanguageSwitcher />
+            <SidebarSignOutButton />
+          </Sidebar>,
+        ),
+    },
+  });
