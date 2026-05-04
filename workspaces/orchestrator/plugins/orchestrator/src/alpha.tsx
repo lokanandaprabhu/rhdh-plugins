@@ -148,4 +148,7 @@ export const orchestratorTranslationsModule = createFrontendModule({
   extensions: [orchestratorTranslation],
 });
 
-export { orchestratorTranslationRef } from './translations';
+export {
+  orchestratorTranslationRef,
+  orchestratorTranslations,
+} from './translations';
