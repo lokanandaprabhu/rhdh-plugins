@@ -23,7 +23,6 @@ import ReactFlow, {
   getSmoothStepPath,
   Handle,
   MarkerType,
-  MiniMap,
   Node,
   NodeProps,
   Position,
@@ -85,6 +84,8 @@ type FlowNodeData = {
 const NODE_GAP_Y = 90;
 const NODE_WIDTH = 180;
 const NODE_HEIGHT = 56;
+const VIEWPORT_WIDTH = 920;
+const VIEWPORT_HEIGHT = 800;
 
 const WorkflowFlowNode = ({ data }: NodeProps<FlowNodeData>) => {
   const stroke = data.isPlaceholder ? '#8a8d90' : '#151515';
@@ -310,7 +311,7 @@ const buildFlow = (
   });
   dagre.layout(g);
 
-  const nodes: Node<FlowNodeData>[] = [];
+  let nodes: Node<FlowNodeData>[] = [];
   nodeOrder.forEach(id => {
     const node = nodeMap.get(id);
     const layout = g.node(id);
@@ -329,6 +330,22 @@ const buildFlow = (
       },
     });
   });
+
+  const minX = Math.min(...nodes.map(node => node.position.x));
+  const minY = Math.min(...nodes.map(node => node.position.y));
+  const maxX = Math.max(...nodes.map(node => node.position.x + NODE_WIDTH));
+  const maxY = Math.max(...nodes.map(node => node.position.y + NODE_HEIGHT));
+  const contentWidth = maxX - minX;
+  const contentHeight = maxY - minY;
+  const offsetX = Math.max(20, (VIEWPORT_WIDTH - contentWidth) / 2 - minX);
+  const offsetY = Math.max(20, (VIEWPORT_HEIGHT - contentHeight) / 2 - minY);
+  nodes = nodes.map(node => ({
+    ...node,
+    position: {
+      x: node.position.x + offsetX,
+      y: node.position.y + offsetY,
+    },
+  }));
 
   return { nodes, edges };
 };
@@ -385,7 +402,7 @@ export const WorkflowVisualizationReactFlowCard = ({
       {!loadingWorkflowSource && !errorWorkflowSource && flow && (
         <Box
           sx={{
-            height: 520,
+            height: 800,
             width: '100%',
             maxWidth: 920,
             marginX: 'auto',
@@ -398,16 +415,10 @@ export const WorkflowVisualizationReactFlowCard = ({
             edgeTypes={edgeTypes}
             nodesDraggable={false}
             nodesConnectable={false}
-            fitView
-            fitViewOptions={{ padding: 0.2 }}
+            defaultViewport={{ x: 0, y: 0, zoom: 0.7 }}
           >
             <Background gap={16} />
             <Controls />
-            <MiniMap
-              nodeColor={node =>
-                node.data?.isPlaceholder ? '#d2d2d2' : '#6a6e73'
-              }
-            />
           </ReactFlow>
         </Box>
       )}

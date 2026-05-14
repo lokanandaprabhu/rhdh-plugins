@@ -66,6 +66,10 @@ const orchestratorTranslationIt = createTranslationMessages({
     'workflow.visualization': 'Visualizzazione del flusso di lavoro',
     'workflow.visualizationReactFlow':
       'Visualizzazione del flusso di lavoro (React Flow)',
+    'workflow.swfEditorFull': 'Editor SWF (KIE Tools)',
+    'workflow.swfEditorDiagram': 'Diagramma SWF (KIE Tools)',
+    'workflow.swfEditorUnavailable':
+      "L'origine del flusso di lavoro dell'editor SWF non e disponibile.",
     'workflow.visualizationEmpty':
       'Nessuna definizione del flusso di lavoro disponibile.',
     'workflow.visualizationInvalid':

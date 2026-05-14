@@ -63,6 +63,10 @@ const orchestratorTranslationJa = createTranslationMessages({
     'workflow.details': '詳細',
     'workflow.definition': 'ワークフロー定義',
     'workflow.visualizationReactFlow': 'ワークフローの可視化 (React Flow)',
+    'workflow.swfEditorFull': 'SWF エディター (KIE Tools)',
+    'workflow.swfEditorDiagram': 'SWF ダイアグラム (KIE Tools)',
+    'workflow.swfEditorUnavailable':
+      'SWF エディターのワークフローソースが利用できません。',
     'workflow.progress': 'ワークフロー進捗',
     'workflow.status.available': '利用可能',
     'workflow.status.unavailable': '利用不可',

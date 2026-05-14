@@ -52,6 +52,10 @@ const orchestratorTranslationDe = createTranslationMessages({
     'workflow.definition': 'Workflow-Definition',
     'workflow.visualization': 'Workflow-Visualisierung',
     'workflow.visualizationReactFlow': 'Workflow-Visualisierung (React Flow)',
+    'workflow.swfEditorFull': 'SWF-Editor (KIE Tools)',
+    'workflow.swfEditorDiagram': 'SWF-Diagramm (KIE Tools)',
+    'workflow.swfEditorUnavailable':
+      'SWF-Editor-Workflowquelle ist nicht verfugbar.',
     'workflow.visualizationEmpty': 'Keine Workflow-Definition verfügbar.',
     'workflow.visualizationInvalid':
       'Workflow-Definition konnte nicht geparst werden.',

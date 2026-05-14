@@ -33,6 +33,7 @@ import { useTranslation } from '../../hooks/useTranslation';
 import { entityWorkflowRouteRef, workflowRouteRef } from '../../routes';
 import ServerlessWorkflowEditor from './ServerlessWorkflowEditor';
 import WorkflowDefinitionDetailsCard from './WorkflowDetailsCard';
+import { WorkflowSwfEditorCard } from './WorkflowSwfEditorCard';
 import { WorkflowVisualizationCard } from './WorkflowVisualizationCard';
 import { WorkflowVisualizationReactFlowCard } from './WorkflowVisualizationReactFlowCard';
 
@@ -97,6 +98,34 @@ export const WorkflowDetailsTabContent = ({
               workflowSource={value?.data}
               loadingWorkflowSource={loading}
               errorWorkflowSource={error}
+            />
+          </Box>
+        </Grid>
+      )}
+      {workflowOverviewDTO && canViewSource && (
+        <Grid item>
+          <Box sx={{ width: '80%', mx: 'auto' }}>
+            <WorkflowSwfEditorCard
+              title={t('workflow.swfEditorFull')}
+              format={workflowOverviewDTO.format}
+              loadingWorkflowSource={loading}
+              workflowSource={value?.data}
+              errorWorkflowSource={error}
+              editorMode="full"
+            />
+          </Box>
+        </Grid>
+      )}
+      {workflowOverviewDTO && canViewSource && (
+        <Grid item>
+          <Box sx={{ width: '80%', mx: 'auto' }}>
+            <WorkflowSwfEditorCard
+              title={t('workflow.swfEditorDiagram')}
+              format={workflowOverviewDTO.format}
+              loadingWorkflowSource={loading}
+              workflowSource={value?.data}
+              errorWorkflowSource={error}
+              editorMode="diagram"
             />
           </Box>
         </Grid>
