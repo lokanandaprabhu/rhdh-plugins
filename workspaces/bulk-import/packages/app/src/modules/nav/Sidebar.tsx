@@ -32,13 +32,18 @@ import { SidebarLogo } from './SidebarLogo';
 
 export const SidebarContent = NavContentBlueprint.make({
   params: {
-    component: ({ items }) => (
+    component: ({ navItems }) => (
       <Sidebar>
         <SidebarLogo />
         <SidebarDivider />
         <SidebarGroup label="Menu" icon={<MenuIcon />}>
-          {items.map((item, index) => (
-            <SidebarItem {...item} key={index} />
+          {navItems.rest().map(item => (
+            <SidebarItem
+              key={item.href}
+              icon={() => item.icon}
+              to={item.href}
+              text={item.title}
+            />
           ))}
         </SidebarGroup>
         <SidebarScrollWrapper />
